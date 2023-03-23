@@ -14,4 +14,5 @@ def point_to_remove(points, lin_func):
             max_dif = sigma
             index = cnt
         cnt += 1
-    return index
+    return index, max_dif
+

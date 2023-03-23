@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from calculations import *
+from least_square import *
 
 def get_graphs(n, a, b, lin_func_before, lin_func_after, points_before):
     lim_x = max_x(points_before)
@@ -29,4 +30,6 @@ def get_graphs(n, a, b, lin_func_before, lin_func_after, points_before):
     plt.plot(x, y3(x), 'g', label = 'до исключения')
     plt.plot(x, y2(x), 'b', label = 'после исключения и пересчета')
     plt.legend()
+    plt.xlabel('x')
+    plt.ylabel('y')
     plt.show()

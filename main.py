@@ -5,21 +5,25 @@ from least_square import *
 from graphs import *
 
 number = get_number()
-print_function(number)
-func = get_function(number)
-a, b = [int(x) for x in input("Введите интервал для аппроксимации: ").split()]
-if (interval_check(a, b)):
-    n = int(input("Введите количество точек: "))
-    func_points = get_points(a, b, n, func)
-    print(func_points)
-    lin_func = get_linear_function(func_points, n)
-    index = point_to_remove(func_points, lin_func)
-    print(index)
-    old_points = func_points.copy()
-    print("old", len(func_points))
-    func_points.pop(index)
-    print("new", len(func_points))
-    lin_func1 = get_linear_function(func_points, n - 1)
-    get_graphs(n, a, b, lin_func, lin_func1, old_points)
+if number != None:
+    print_function(number)
+    func = get_function(number)
+    left, right = [float(x) for x in input("Введите интервал для аппроксимации: ").split()]
+    if (interval_check(left, right)):
+        n = int(input("Введите количество точек: "))
+        func_points = get_points(left, right, n, func)
+        print_points(func_points)
+        lin_func, a, b = get_linear_function(func_points, n)
+        print("Линейная аппроксимирующая функция до исключения точки с максимальным квадратом отклонения:")
+        print("y(x) = ", "%.4f" % (a), "x + ", "(%.4f)" % (b))
+        index, max_dif = point_to_remove(func_points, lin_func)
+        print("Максимальный квадрат отклонения (%.4f)" %(max_dif)," у точки №", (index + 1))
+        old_points = func_points.copy()
+        func_points.pop(index)
+        lin_func1, a_new, b_new = get_linear_function(func_points, n - 1)
+        print("Линейная аппроксимирующая функция после исключения точки №", index,"и пересчета:")
+        print("y(x) = ", "%.4f" % (a_new), "x + ", "(%.4f)" % (b_new))
+        get_graphs(n, left, right, lin_func, lin_func1, old_points)
+
 
 
