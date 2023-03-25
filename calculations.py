@@ -48,3 +48,9 @@ def max_x(points):
     for row in points:
         x = max(x, abs(row[0]))
     return x
+
+def get_error(points, lin_func):
+    sigma = 0
+    for row in points:
+        sigma += (row[1] - lin_func(row[0]))**2
+    return sigma

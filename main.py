@@ -16,6 +16,8 @@ if number != None:
         lin_func, a, b = get_linear_function(func_points, n)
         print("Линейная аппроксимирующая функция до исключения точки с максимальным квадратом отклонения:")
         print("y(x) = ", "%.4f" % (a), "x + ", "(%.4f)" % (b))
+        sigma = get_error(func_points, lin_func)
+        print("Погрешность: ", sigma)
         index, max_dif = point_to_remove(func_points, lin_func)
         print("Максимальный квадрат отклонения (%.4f)" %(max_dif)," у точки №", (index + 1))
         old_points = func_points.copy()
@@ -23,6 +25,8 @@ if number != None:
         lin_func1, a_new, b_new = get_linear_function(func_points, n - 1)
         print("Линейная аппроксимирующая функция после исключения точки №", index,"и пересчета:")
         print("y(x) = ", "%.4f" % (a_new), "x + ", "(%.4f)" % (b_new))
+        sigma = get_error(func_points, lin_func1)
+        print("Погрешность: ", sigma)
         get_graphs(n, left, right, lin_func, lin_func1, old_points)
 
 
