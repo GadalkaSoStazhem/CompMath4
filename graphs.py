@@ -4,22 +4,6 @@ from calculations import *
 from least_square import *
 
 def get_graphs(n, a, b, lin_func_before, lin_func_after, points_before):
-    lim_x = max_x(points_before)
-    lim_y = max_y(points_before)
-    #plt.xlim([-(lim_x + 1), lim_x + 1])
-    #plt.ylim([-(lim_y + 1), lim_y + 1])
-    """ax = plt.gca()"""
-
-
-    #fig, ax = plt.subplots()
-
-    #ax.set(xlim=(-(lim_x + 1), lim_x + 1), xticks=np.arange(-(lim_x + 1), lim_x + 1),
-           #ylim=(-(lim_y + 1), lim_y + 1), yticks=np.arange(-(lim_y + 1), lim_y + 1))
-    """ax.spines['left'].set_position('center')
-    ax.spines['bottom'].set_position('center')
-    ax.spines['top'].set_visible(False)
-    ax.spines['right'].set_visible(False)
-    ax.set_aspect('equal')"""
     plt.grid(True)
     x = np.arange(a, b + 1, 1)
     y2 = lin_func_before

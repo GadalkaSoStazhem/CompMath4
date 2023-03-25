@@ -1,6 +1,6 @@
 def get_number():
     number = int(input("Введите номер примера: "))
-    if number < 1 or number > 4:
+    if number < 1 or number > 6:
         print("Неверный номер примера")
         return None
     return number
@@ -16,6 +16,10 @@ def print_function(number):
         print("y(x) = 0.3 * x * sin(x)")
     elif number == 4:
         print("y(x) = x^4 + 2x")
+    elif number == 5:
+        print("y(x) = 0.6 * x^5 + 0.9 * x^4 - 0.6 * x^3 - 0.5 * x^2 - 0.3x + 1")
+    elif number == 6:
+        print("y(x) = 2cos(x - 4) + 0.6x")
 
 def print_points(points):
     print("Набор точек: ")

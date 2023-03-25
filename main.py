@@ -23,7 +23,7 @@ if number != None:
         old_points = func_points.copy()
         func_points.pop(index)
         lin_func1, a_new, b_new = get_linear_function(func_points, n - 1)
-        print("Линейная аппроксимирующая функция после исключения точки №", index,"и пересчета:")
+        print("Линейная аппроксимирующая функция после исключения точки №", (index + 1),"и пересчета:")
         print("y(x) = ", "%.4f" % (a_new), "x + ", "(%.4f)" % (b_new))
         sigma = get_error(func_points, lin_func1)
         print("Погрешность: ", sigma)
